@@ -9,29 +9,84 @@
 .sd .on{color:#f91880}.bg{position:absolute;left:50%;top:45%;font-size:110px;color:#f91880;transform:translate(-50%,-50%) scale(0);opacity:0;pointer-events:none;z-index:3}.bg.go{animation:pop .7s ease-out}
 @keyframes pop{30%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
 #tb{position:fixed;top:0;left:0;right:0;display:flex;justify-content:center;gap:18px;padding:10px;z-index:5;background:linear-gradient(#000a,#0000);font-weight:700}#tb a,#tb button{color:#fffb;background:none;border:0;font:700 15px system-ui;text-decoration:none}#tb .on{color:#fff;box-shadow:inset 0 -2px #fff}
-.ft2{position:absolute;bottom:14px;width:100%;text-align:center;font-size:11px;opacity:.6}</style><nav id=tb><a href="memsea.html">‹ Memory Sea</a><button data-t=foryou>For you</button><button data-t=latest>Latest</button></nav><div id=rl></div><script>
-let LK={},TAB='latest';try{LK=JSON.parse(localStorage.getItem('msLikes')||'{}');const t=localStorage.getItem('msTab');if(t)TAB=t}catch(x){}
-const FACE={"surf-gil": "avatars/surf-gil-320.jpg", "cleo": "avatars/cleo-320.jpg", "lulu": "avatars/lulu-320.jpg", "thoth": "avatars/thoth-320.jpg", "javi": "avatars/javi-320.jpg", "rust": "avatars/rust-320.jpg", "aureliobrisa": "avatars/aureliobrisa-320.jpg", "dara": "avatars/dara-320.jpg", "nina": "avatars/nina-320.jpg", "yara": "avatars/yara-320.jpg", "fabian": "avatars/fabian-320.jpg", "finn": "avatars/finn-320.jpg", "deida": "avatars/deida-320.jpg", "surf-coco": "avatars/surf-coco-320.jpg", "valentina": "avatars/valentina-320.jpg", "dana": "avatars/dana-320.jpg", "vee": "avatars/vee-320.jpg", "fenna": "avatars/fenna-320.jpg", "marisol": "avatars/marisol-320.jpg", "chris": "avatars/chris-320.jpg", "tobin": "avatars/tobin-320.jpg", "david": "avatars/david-320.jpg", "noemiarenas": "avatars/noemiarenas-320.jpg", "perrin": "avatars/perrin-320.jpg", "surfista": "avatars/surfista-320.jpg", "surf-vera": "avatars/surf-vera-320.jpg", "lalo": "avatars/lalo-320.jpg", "kiki": "avatars/kiki-320.jpg", "sami": "avatars/sami-320.jpg", "surf-ezra": "avatars/surf-ezra-320.jpg", "mckenna": "avatars/mckenna-320.jpg", "sky": "avatars/sky.png"},F=d=>({tag:d.tag||'',who:d.who||'',kind:d.kind||'old',rp:d.rp||'0'});let L=null,CL=[];
-function score(d){const l=Object.values(LK);if(!l.length)return 0;const f=F(d);let s=0;l.forEach(x=>{s+=(x.tag==f.tag)*3+(x.who==f.who)*2+(x.kind==f.kind)*1.5+(x.rp==f.rp)*.5});return s/l.length}
-function save(){try{localStorage.setItem('msLikes',JSON.stringify(LK));localStorage.setItem('msTab',TAB)}catch(x){}}
+.ft2{position:absolute;bottom:14px;width:100%;text-align:center;font-size:11px;opacity:.6}
+.rc.gd{box-shadow:inset 0 0 0 4px #ffd36a,inset 0 0 60px #ffcf5a88}.rc.gd .cp{background:#2a1d00c8;border:1px solid #ffd36a}.bdg{position:absolute;left:12px;top:52px;z-index:2;font:700 13px system-ui;padding:5px 10px;border-radius:12px;background:#0008}
+.gd .bdg{background:#ffd36a;color:#3a2600}.rc.fl .fp{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(#2a3f7a,#0b1022);font:700 22px system-ui;transition:transform .6s,opacity .6s;backface-visibility:hidden}
+.rc.fl .fp i{font-size:80px;font-style:normal}.rc.fl.up .fp{transform:rotateY(90deg);opacity:0;pointer-events:none}#ts{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:9;background:#000c;padding:9px 16px;border-radius:18px;font:600 14px system-ui;opacity:0;transition:opacity .5s;pointer-events:none}#ts.on{opacity:1}
+.fin{background:radial-gradient(circle at 50% 30%,#ffd36a,#b5532a 40%,#1a0f2e 80%)}.fin a{color:#fff}
+.rc .cp{margin-right:74px}.w{display:inline-block;opacity:0;transform:translateY(.45em) scale(.8)}.in .w{animation:wp .34s cubic-bezier(.2,1.7,.4,1) forwards}@keyframes wp{to{opacity:1;transform:none}}
+.sd button small{display:block;font:700 11px system-ui;margin-top:-4px}#cm{position:fixed;left:0;right:0;bottom:0;max-height:60vh;z-index:10;background:#15182a;border-radius:18px 18px 0 0;padding:14px 16px 18px;transform:translateY(105%);transition:transform .3s;display:flex;flex-direction:column;gap:8px}
+#cm.on{transform:none}#cm ul{list-style:none;margin:0;padding:0;overflow-y:auto;flex:1}#cm li{padding:6px 0;border-bottom:1px solid #fff2;font-size:15px}#cm li small{opacity:.6;margin-left:6px}#cm form{display:flex;gap:8px}
+#cm input{flex:1;border-radius:14px;border:0;padding:10px 12px;font:15px system-ui;background:#fff1;color:#fff}#cm button{border:0;border-radius:14px;padding:8px 14px;font:700 14px system-ui;background:#f91880;color:#fff}#cm .x{background:none;position:absolute;right:8px;top:6px;font-size:20px}</style><nav id=tb><a href="memsea.html">‹ Memory Sea</a><button data-t=foryou>For you</button><button data-t=latest>Latest</button></nav><div id=rl></div><div id=ts></div><script>
+let CM={};try{CM=JSON.parse(localStorage.getItem('msNotes')||'{}')}catch(x){}
+let LK={},TAB='latest',PR={},GD={},ST={d:'',n:0};try{LK=JSON.parse(localStorage.getItem('msLikes')||'{}');const t=localStorage.getItem('msTab');if(t)TAB=t;PR=JSON.parse(localStorage.getItem('msProbe')||'{}');GD=JSON.parse(localStorage.getItem('msGold')||'{}');ST=JSON.parse(localStorage.getItem('msStreak')||'{"d":"","n":0}')}catch(x){}
+const FACE={"thoth": "avatars/thoth-320.jpg", "javi": "avatars/javi-320.jpg", "rust": "avatars/rust-320.jpg", "aureliobrisa": "avatars/aureliobrisa-320.jpg", "dara": "avatars/dara-320.jpg", "nina": "avatars/nina-320.jpg", "yara": "avatars/yara-320.jpg", "fabian": "avatars/fabian-320.jpg", "finn": "avatars/finn-320.jpg", "deida": "avatars/deida-320.jpg", "surf-coco": "avatars/surf-coco-320.jpg", "valentina": "avatars/valentina-320.jpg", "dana": "avatars/dana-320.jpg", "vee": "avatars/vee-320.jpg", "cleo": "avatars/cleo-320.jpg", "fenna": "avatars/fenna-320.jpg", "marisol": "avatars/marisol-320.jpg", "chris": "avatars/chris-320.jpg", "tobin": "avatars/tobin-320.jpg", "david": "avatars/david-320.jpg", "noemiarenas": "avatars/noemiarenas-320.jpg", "perrin": "avatars/perrin-320.jpg", "surfista": "avatars/surfista-320.jpg", "surf-vera": "avatars/surf-vera-320.jpg", "lalo": "avatars/lalo-320.jpg", "kiki": "avatars/kiki-320.jpg", "sami": "avatars/sami-320.jpg", "surf-ezra": "avatars/surf-ezra-320.jpg", "mckenna": "avatars/mckenna-320.jpg", "solennevale": "avatars/solennevale-320.jpg", "tiago": "avatars/tiago-320.jpg", "sky": "avatars/sky.png"},FIN=0,F=d=>({tag:d.tag||'',who:d.who||'',kind:d.kind||'old',rp:d.rp||'0'});let L=null,CL=[];
+// Surprise mechanics (all in this browser only; nothing is sent anywhere): wildcard slots, rare golden drops, gentle visit streaks, mystery flip cards,
+// a changing order, more golden drops on moonlit nights, and now-and-then off-pattern cards whose taps are counted on this device to tune For you.
+const hs=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return (h>>>0)/4294967296};
+const AZ=t=>new Date(t).toLocaleDateString('en-CA',{timeZone:'America/Phoenix'}),TODAY=AZ(Date.now()),YDAY=AZ(Date.now()-864e5);
+const AGE=(((Date.now()/864e5+2440587.5-2451550.1)%29.530589)+29.530589)%29.530589,MOON=AGE>12.9&&AGE<16.6;
+if(ST.d!=TODAY){ST.n=ST.d==YDAY?ST.n+1:1;ST.d=TODAY}const MILE=[3,7,14,21,30,45,60,69].includes(ST.n);
+const GR=.035*(MOON?2.5:1)*(ST.n>=3?1.3:1);
+function score(d){const l=Object.values(LK);const f=F(d);let s=0;l.forEach(x=>{s+=(x.tag==f.tag)*3+(x.who==f.who)*2+(x.kind==f.kind)*1.5+(x.rp==f.rp)*.5});s=l.length?s/l.length:0;
+const p=PR[f.kind];if(p&&p.s>=3)s+=Math.min(1,p.t/p.s);return s}
+// Batch 10-25 For you ranking: hearts influence but never pin. Each like decays (half-life 3 days since it was tapped), a hearted block itself sinks
+// (you have seen it), fresh blocks get a lift, a small per-day seeded jitter mixes the order, and a diversity pass avoids runs of one resident or kind.
+const RK_H=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return (h>>>0)/4294967296};
+function RANK(it,fg,hg,ng,ex){const now=Date.now(),D=864e5,day=new Date().toLocaleDateString('en-CA',{timeZone:'America/Phoenix'});
+const lk=Object.entries(LK).map(([h,x])=>[h,x,Math.pow(.5,Math.max(0,now-(x.t||now-7*D))/(3*D))]),W=lk.reduce((a,x)=>a+x[2],0)||1;
+const ns=it.map(ng).sort((a,b)=>a-b),fr=n=>ns.length>1?ns.indexOf(n)/(ns.length-1):1;
+const sc=it.map(o=>{const f=fg(o),h=hg(o);let s=0;lk.forEach(([k,x,w])=>{s+=w*((x.tag==f.tag)*3+(x.who==f.who)*2+(x.kind==f.kind)*1.5+(x.rp==f.rp)*.5)/7});s=lk.length?s/Math.max(1,W):0;
+return {o,f,v:(LK[h]?-.2:.55*s)+.3*fr(ng(o))+.25*RK_H(h+'|'+day)+(ex?ex(o):0)}});
+const out=[],rw=[];while(sc.length){let bi=0,bv=-1e9;for(let i=0;i<sc.length;i++){const c=sc[i];let v=c.v;rw.forEach((r,k)=>{if(r.who==c.f.who)v-=.18/(k+1);if(r.tag==c.f.tag)v-=.15/(k+1)});if(v>bv){bv=v;bi=i}}
+const c=sc.splice(bi,1)[0];out.push(c.o);rw.unshift(c.f);rw.length=Math.min(rw.length,3)}return out}
+function save(){try{localStorage.setItem('msLikes',JSON.stringify(LK));localStorage.setItem('msTab',TAB);localStorage.setItem('msProbe',JSON.stringify(PR));localStorage.setItem('msGold',JSON.stringify(GD));localStorage.setItem('msStreak',JSON.stringify(ST))}catch(x){}}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+let TT;function toast(m){const t=document.getElementById('ts');t.textContent=m;t.classList.add('on');clearTimeout(TT);TT=setTimeout(()=>t.classList.remove('on'),2600)}
 function MS(x){L=x;draw()}
+function mix(a,w){a=a.slice();for(let i=0;i<a.length;i+=w){const c=a.slice(i,i+w);for(let k=c.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[c[k],c[j]]=[c[j],c[k]]}a.splice(i,c.length,...c)}return a}
 function draw(){if(!L)return;const t=document.createElement('template');t.innerHTML=L.rows;
 let bs=[...t.content.querySelectorAll('.blk')].map(b=>({...b.dataset,q:b.querySelector('q:not(.who)')?.textContent||b.querySelector('.bd>p')?.textContent||'',sg:b.querySelector('.sng')?.innerHTML||'',av:b.querySelector('.av img')?.getAttribute('src')||''}));
 const by=new Map(bs.map(b=>[b.h,b]));const cl=CL.map(c=>({...(by.get(c.h)||{n:c.n,h:c.h,day:c.day,who:c.who,name:c.name,tag:c.tag,kind:c.kind,rp:'0'}),clip:c.file,po:c.poster||''}));const ch=new Set(CL.map(c=>c.h));
-bs=bs.filter(b=>!ch.has(b.h));if(TAB=='foryou')bs.sort((a,b)=>(score(b)-score(a))||(b.n-a.n));
-const o=[];let i=0,j=0;while(i<cl.length||j<bs.length){if(i<cl.length)o.push(cl[i++]);for(let k=0;k<3&&j<bs.length;k++)o.push(bs[j++])}
-const R=document.getElementById('rl');R.innerHTML=o.map(card).join('');const q=+(new URLSearchParams(location.search).get('c')||0);if(q)R.scrollTop=q*R.clientHeight;document.querySelectorAll('#tb button').forEach(b=>b.classList.toggle('on',b.dataset.t==TAB));wire()}
-function card(d){const lb=(d.kind=='song'?'♪ song':'@'+esc(d.who))+' · '+esc(d.tag)+' · Day '+esc(d.day);const hb='<div class=sd><button class="hb'+(LK[d.h]?' on':'')+'">'+(LK[d.h]?'♥':'♡')+'</button>'+(d.clip?'<button class=mu>🔇</button>':'')+'</div><div class=bg>♥</div>';
-const dd=' data-h="'+esc(d.h)+'" data-f=\''+esc(JSON.stringify(F(d)))+'\'';
+bs=bs.filter(b=>!ch.has(b.h));if(TAB=='foryou')bs=RANK(bs,F,d=>d.h,d=>+d.n||0,d=>{const p=PR[F(d).kind];return p&&p.s>=3?.2*Math.min(1,p.t/p.s):0});else bs.sort((a,b)=>b.n-a.n);bs=mix(bs,TAB=='foryou'?3:4);
+const cut=Math.min(24,Math.floor(bs.length/2)),old=bs.splice(cut).map(x=>x),lk=Object.values(LK),lkK=new Set(lk.map(x=>x.kind)),lkT=new Set(lk.map(x=>x.tag));
+bs=bs.concat(old.splice(0,Math.max(0,old.length-12)));
+const o=[];let i=0,j=0,s=0;const take=()=>bs.length>j?bs[j++]:null;
+while(i<cl.length||j<bs.length||(old.length&&o.length<40)){if(i<cl.length&&s%4==0){o.push(cl[i++]);s++;continue}
+let d=null;if(s%7==6&&old.length)d={...old.splice(Math.floor(Math.random()*old.length),1)[0],wc:1};
+else if(s%11==9&&lk.length){const k=bs.slice(j).findIndex(x=>!lkK.has(x.kind)&&!lkT.has(x.tag));if(k>=0){d={...bs.splice(j+k,1)[0],pr:1}}}
+if(!d)d=take();if(!d){if(i<cl.length){o.push(cl[i++]);s++;continue}if(old.length){d={...old.shift(),wc:1}}else break}
+o.push(d);s++}
+o.forEach((d,k)=>{if(d.clip)return;d.gd=hs(d.h+'|'+TODAY)<GR;d.fl=!d.gd&&k>2&&hs(d.h+'~'+TODAY)<.1});
+if(MILE&&!o.slice(0,12).some(d=>d.gd)){const c=o.slice(3,12).filter(d=>!d.clip);if(c.length)c[Math.floor(hs(TODAY+ST.n)*c.length)].gd=1}
+{const qh=new URLSearchParams(location.search).get('h'),k=qh?o.findIndex(d=>d.h==qh):-1;if(k>0)o.unshift(o.splice(k,1)[0])}if(FIN)o.unshift({fin:1});
+const R=document.getElementById('rl');R.innerHTML=o.map(card).join('');const q=+(new URLSearchParams(location.search).get('c')||0);if(q)R.scrollTop=q*R.clientHeight;document.querySelectorAll('#tb button').forEach(b=>b.classList.toggle('on',b.dataset.t==TAB));wire();
+if(ST.n>=2&&!draw.once){draw.once=1;setTimeout(()=>toast((MILE?'✦ ':'')+ST.n+' days in a row'+(MILE?' · a golden drop is hiding in here':'')+(MOON?' · the moon is up tonight':'')),900)}else if(MOON&&!draw.once){draw.once=1;setTimeout(()=>toast('🌙 The moon is up · golden drops come more often tonight'),900)}save()}
+// Batch 10-25 TikTok-style: word-by-word pop-in captions (replay each time a card comes into view), local-only notes (💬), copy-link share (↗; ?h=<hash> opens that card first).
+const WD=q=>String(q).split(/\s+/).filter(Boolean).map((w,i)=>'<span class=w style="animation-delay:'+Math.min(i*.085,3.2).toFixed(2)+'s">'+esc(w)+'</span>').join(' ');
+function sheet(c){let m=document.getElementById('cm');if(!m){m=document.createElement('div');m.id='cm';m.innerHTML='<button class=x>✕</button><b>Notes</b><small style="opacity:.7">Saved on this device only. Nobody else sees them.</small><ul></ul><form><input maxlength=200 placeholder="Add a note…"><button>Save</button></form>';document.body.appendChild(m);
+m.querySelector('.x').onclick=()=>m.classList.remove('on')}const h=c.dataset.h,ul=m.querySelector('ul'),f=m.querySelector('form'),inp=f.querySelector('input');
+const ren=()=>{ul.innerHTML='';(CM[h]||[]).forEach(n=>{const li=document.createElement('li');li.textContent=n.x;const sm=document.createElement('small');sm.textContent=new Date(n.t).toLocaleDateString();li.appendChild(sm);ul.appendChild(li)});if(!(CM[h]||[]).length)ul.innerHTML='<li style="opacity:.6">No notes yet.</li>';const b=c.querySelector('.cb small');if(b)b.textContent=(CM[h]||[]).length||''};
+f.onsubmit=ev=>{ev.preventDefault();const x=inp.value.trim();if(!x)return;(CM[h]=CM[h]||[]).push({t:Date.now(),x});try{localStorage.setItem('msNotes',JSON.stringify(CM))}catch(e){}inp.value='';ren()};ren();m.classList.add('on')}
+function share(c){const u=location.origin+location.pathname+'?h='+encodeURIComponent(c.dataset.h);const ok=()=>toast('🔗 Link copied');
+if(navigator.share&&matchMedia('(pointer:coarse)').matches)navigator.share({title:'The Shoal · Memory Sea',url:u}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(u).then(ok,()=>prompt('Copy this link',u));else prompt('Copy this link',u)}
+function card(d){if(d.fin)return '<section class="rc tx fin" data-h="fin" data-f="{}"><div class=cp><div class=lb>✦ Day 69</div>The Memory Sea, from the first block to the last. <a href="finale.html">Open the finale ›</a></div><div class=sd><button class=hb>♡</button></div><div class=bg>♥</div></section>';
+const lb=(d.kind=='song'?'♪ song':'@'+esc(d.who))+' · '+esc(d.tag)+' · Day '+esc(d.day);const nc=(CM[d.h]||[]).length,hb='<div class=sd><button class="hb'+(LK[d.h]?' on':'')+'" title=Like>'+(LK[d.h]?'♥':'♡')+'</button><button class=cb title="Notes (this device only)">💬<small>'+(nc||'')+'</small></button><button class=sb title="Copy link">↗</button>'+(d.clip?'<button class=mu>🔇</button>':'')+'</div><div class=bg>♥</div>';
+const dd=' data-h="'+esc(d.h)+'" data-f=\''+esc(JSON.stringify(F(d)))+'\''+(d.pr?' data-pr=1':'');
 if(d.clip)return '<section class="rc vid"'+dd+'><video data-src="'+esc(d.clip)+'"'+(d.po?' poster="'+esc(d.po)+'"':'')+' preload=none muted playsinline loop></video>'+hb+'</section>';
+const bd=d.gd?'<div class=bdg>✦ golden drop</div>':d.wc?'<div class=bdg>🃏 wildcard · from the deep</div>':d.pr?'<div class=bdg>🧭 something different</div>':'';
+const fp=d.fl?'<div class=fp><i>🂠</i>mystery card<small style="font-weight:400;opacity:.8">tap to flip</small></div>':'';
 const fs=FACE[d.who]||d.av;const fc=d.kind=='song'?'<div class=fc></div>':fs?'<div class=fc><img src="'+esc(fs)+'" alt="" loading=lazy></div>':'';
-return '<section class="rc tx'+(d.kind=='song'?' sg':'')+'"'+dd+'>'+fc+'<div class=cp><div class=lb>'+lb+'</div>'+(d.kind=='song'?'<i>'+d.sg+'</i>':esc(d.q))+'</div>'+hb+'<div class=ft2>The Shoal · La Ola Studios</div></section>'}
-let IO;function wire(){IO&&IO.disconnect();IO=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target.querySelector('video');if(!v)return;
-if(e.isIntersecting&&e.intersectionRatio>.6){if(!v.src)v.src=v.dataset.src;v.play().catch(()=>{})}else if(!v.paused)v.pause()}),{threshold:[0,.6]});
-document.querySelectorAll('.rc').forEach(c=>{IO.observe(c);let tm=0;c.onclick=ev=>{if(ev.target.closest('.sd'))return;if(tm){clearTimeout(tm);tm=0;like(c,true)}else tm=setTimeout(()=>{tm=0;mute(c)},280)};
-c.querySelector('.hb').onclick=()=>like(c,false);const m=c.querySelector('.mu');if(m)m.onclick=()=>mute(c)})}
-function like(c,dbl){const k=c.dataset.h;if(dbl){LK[k]=JSON.parse(c.dataset.f);const g=c.querySelector('.bg');g.classList.remove('go');void g.offsetWidth;g.classList.add('go')}else if(LK[k])delete LK[k];else LK[k]=JSON.parse(c.dataset.f);
+return '<section class="rc tx'+(d.kind=='song'?' sg':'')+(d.gd?' gd':'')+(d.fl?' fl':'')+'"'+dd+'>'+fp+bd+fc+'<div class=cp><div class=lb>'+lb+'</div>'+(d.kind=='song'?'<i>'+d.sg+'</i>':WD(d.q))+'</div>'+hb+'<div class=ft2>The Shoal · La Ola Studios</div></section>'}
+function probe(c,k){if(!c.dataset.pr)return;const f=JSON.parse(c.dataset.f),p=PR[f.kind]=PR[f.kind]||{s:0,t:0};p[k]++;save()}
+let IO;function wire(){IO&&IO.disconnect();IO=new IntersectionObserver(es=>es.forEach(e=>{const c=e.target,v=c.querySelector('video');
+if(e.isIntersecting&&e.intersectionRatio>.6&&!c.dataset.seen){c.dataset.seen=1;probe(c,'s');if(c.classList.contains('gd')&&!GD[c.dataset.h]){GD[c.dataset.h]=TODAY;save();toast('✦ Golden drop · '+Object.keys(GD).length+' found so far')}}
+c.classList.toggle('in',e.isIntersecting&&e.intersectionRatio>.6||c.classList.contains('in')&&e.isIntersecting);if(!v)return;if(e.isIntersecting&&e.intersectionRatio>.6){if(!v.src)v.src=v.dataset.src;v.play().catch(()=>{})}else if(!v.paused)v.pause()}),{threshold:[0,.6]});
+document.querySelectorAll('.rc').forEach(c=>{IO.observe(c);let tm=0;c.onclick=ev=>{if(ev.target.closest('.sd')||ev.target.closest('a'))return;
+if(c.classList.contains('fl')&&!c.classList.contains('up')){c.classList.add('up');probe(c,'t');return}
+if(tm){clearTimeout(tm);tm=0;like(c,true)}else tm=setTimeout(()=>{tm=0;mute(c)},280)};
+c.querySelector('.hb').onclick=()=>like(c,false);const cb=c.querySelector('.cb'),sb=c.querySelector('.sb');if(cb)cb.onclick=()=>sheet(c);if(sb)sb.onclick=()=>share(c);const m=c.querySelector('.mu');if(m)m.onclick=()=>mute(c)})}
+function like(c,dbl){const k=c.dataset.h;if(k=='fin')return;if(dbl){if(!LK[k])probe(c,'t');LK[k]={...JSON.parse(c.dataset.f),t:Date.now()};const g=c.querySelector('.bg');g.classList.remove('go');void g.offsetWidth;g.classList.add('go')}else if(LK[k])delete LK[k];else{LK[k]={...JSON.parse(c.dataset.f),t:Date.now()};probe(c,'t')}
 save();const b=c.querySelector('.hb');b.textContent=LK[k]?'♥':'♡';b.classList.toggle('on',!!LK[k])}
 function mute(c){const v=c.querySelector('video');if(!v)return;v.muted=!v.muted;if(!v.muted)v.play().catch(()=>{});c.querySelector('.mu').textContent=v.muted?'🔇':'🔊'}
 document.querySelectorAll('#tb button').forEach(b=>b.onclick=()=>{TAB=b.dataset.t;save();draw();document.getElementById('rl').scrollTop=0});

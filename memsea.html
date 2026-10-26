@@ -1,4 +1,4 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Memory Sea · The Shoal</title><link rel="stylesheet" href="style.css"><header><b>🌊 The Shoal</b><a href="index.html">Feed</a><a href="cast.html">Residents</a><a href="live.html">Live Feeds</a><a href="stats.html">Shoal Stats</a><a href="memsea.html">Memory Sea</a><a href="sky.html">Sky's Log</a><a href="shows/index.html">Shows</a></header><main><style>.ms-head{background:#0f1b2a;border-radius:12px;padding:14px 16px;margin:8px 0 14px}.ok{background:#1f8f4e}.bad{background:#b3261e}
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Memory Sea · The Shoal</title><link rel="stylesheet" href="style.css"><header><b>🌊 The Shoal</b><a href="index.html">Feed</a><a href="cast.html">Residents</a><a href="live.html">Live Feeds</a><a href="cams.html">Cams</a><a href="stats.html">Shoal Stats</a><a href="memsea.html">Memory Sea</a><a href="sky.html">Sky's Log</a><a href="shows/index.html">Shows</a></header><main><style>.ms-head{background:#0f1b2a;border-radius:12px;padding:14px 16px;margin:8px 0 14px}.ok{background:#1f8f4e}.bad{background:#b3261e}
 #ms-rows{max-width:640px;margin:auto}.blk{display:flex;gap:10px;border-bottom:1px solid #222;padding:12px 6px}.blk:hover{background:#0f151c}.bd{flex:1;min-width:0}
 .hd{display:flex;flex-wrap:wrap;gap:4px;align-items:baseline}.blk q{display:block;font-size:16px;margin:4px 0;quotes:none}.thr{border-left:2px solid #2f3b47;margin:8px 0 0 4px;padding-left:10px}
 .thr p{margin:6px 0}.sng{font-style:italic;line-height:1.6;margin:6px 0}.ft{display:flex;justify-content:space-between;align-items:center;margin-top:6px}.hx{font:12px ui-monospace,monospace;color:#6b7785}
@@ -9,12 +9,22 @@ const MSTAGS=["authentic", "enlightening", "funny", "clever", "weird", "wild", "
 const MSA={};let L=null;function MSDAY(d,h){MSA[d]=h;draw()}function MS(x){L=x;draw();(x.arch||[]).forEach(d=>{if(!(d in MSA)){const s=document.createElement('script');s.src='memsea-day-'+d+'.js';document.body.appendChild(s)}})}
 const F=b=>({tag:b.dataset.tag||'',who:b.dataset.who||'',kind:b.dataset.kind||'old',rp:b.dataset.rp||'0'});
 function score(b){const l=Object.values(LK);if(!l.length)return 0;const f=F(b);let s=0;l.forEach(x=>{s+=(x.tag==f.tag)*3+(x.who==f.who)*2+(x.kind==f.kind)*1.5+(x.rp==f.rp)*.5});return s/l.length}
+// Batch 10-25 For you ranking: hearts influence but never pin. Each like decays (half-life 3 days since it was tapped), a hearted block itself sinks
+// (you have seen it), fresh blocks get a lift, a small per-day seeded jitter mixes the order, and a diversity pass avoids runs of one resident or kind.
+const RK_H=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return (h>>>0)/4294967296};
+function RANK(it,fg,hg,ng,ex){const now=Date.now(),D=864e5,day=new Date().toLocaleDateString('en-CA',{timeZone:'America/Phoenix'});
+const lk=Object.entries(LK).map(([h,x])=>[h,x,Math.pow(.5,Math.max(0,now-(x.t||now-7*D))/(3*D))]),W=lk.reduce((a,x)=>a+x[2],0)||1;
+const ns=it.map(ng).sort((a,b)=>a-b),fr=n=>ns.length>1?ns.indexOf(n)/(ns.length-1):1;
+const sc=it.map(o=>{const f=fg(o),h=hg(o);let s=0;lk.forEach(([k,x,w])=>{s+=w*((x.tag==f.tag)*3+(x.who==f.who)*2+(x.kind==f.kind)*1.5+(x.rp==f.rp)*.5)/7});s=lk.length?s/Math.max(1,W):0;
+return {o,f,v:(LK[h]?-.2:.55*s)+.3*fr(ng(o))+.25*RK_H(h+'|'+day)+(ex?ex(o):0)}});
+const out=[],rw=[];while(sc.length){let bi=0,bv=-1e9;for(let i=0;i<sc.length;i++){const c=sc[i];let v=c.v;rw.forEach((r,k)=>{if(r.who==c.f.who)v-=.18/(k+1);if(r.tag==c.f.tag)v-=.15/(k+1)});if(v>bv){bv=v;bi=i}}
+const c=sc.splice(bi,1)[0];out.push(c.o);rw.unshift(c.f);rw.length=Math.min(rw.length,3)}return out}
 function save(){try{localStorage.setItem('msLikes',JSON.stringify(LK));localStorage.setItem('msTab',TAB)}catch(x){}}
-function arrange(){const r=document.getElementById('ms-rows'),bs=[...r.querySelectorAll('.blk')],n=b=>+b.dataset.n||0;const sc=new Map(bs.map(b=>[b,TAB=='foryou'?score(b):0]));
-bs.sort((a,b)=>(sc.get(b)-sc.get(a))||(n(b)-n(a))).forEach(b=>r.appendChild(b));document.querySelectorAll('.ms-tabs button').forEach(t=>t.classList.toggle('on',t.dataset.t==TAB));
-document.getElementById('ms-hint').textContent=TAB=='foryou'?(Object.keys(LK).length?'Sorted by what you liked (tag, resident, kind, replies). Likes stay on this device only.':'Tap ♡ on a few blocks and this tab learns what you like. Likes stay on this device only.'):''}
+function arrange(){const r=document.getElementById('ms-rows'),bs=[...r.querySelectorAll('.blk')],n=b=>+b.dataset.n||0;
+(TAB=='foryou'?RANK(bs,F,b=>b.dataset.h||b.querySelector('.hx')?.textContent.split(' ')[1]||'',n):bs.sort((a,b)=>n(b)-n(a))).forEach(b=>r.appendChild(b));document.querySelectorAll('.ms-tabs button').forEach(t=>t.classList.toggle('on',t.dataset.t==TAB));
+document.getElementById('ms-hint').textContent=TAB=='foryou'?(Object.keys(LK).length?'Mixed from what you liked (tag, resident, kind, replies), newer likes count more, with fresh and different blocks woven in. Likes stay on this device only.':'Tap ♡ on a few blocks and this tab learns what you like. Likes stay on this device only.'):''}
 function hearts(){document.querySelectorAll('.blk').forEach(b=>{const k=b.dataset.h||b.querySelector('.hx')?.textContent.split(' ')[1];if(!k)return;let x=b.querySelector('.ht');
-if(!x){x=document.createElement('button');x.className='ht';x.title='Like (saved on this device only)';(b.querySelector('.ft')||b.lastElementChild).appendChild(x);x.onclick=()=>{if(LK[k])delete LK[k];else LK[k]=F(b);save();hearts();if(TAB=='foryou')arrange()}}
+if(!x){x=document.createElement('button');x.className='ht';x.title='Like (saved on this device only)';(b.querySelector('.ft')||b.lastElementChild).appendChild(x);x.onclick=()=>{if(LK[k])delete LK[k];else LK[k]={...F(b),t:Date.now()};save();hearts();if(TAB=='foryou')arrange()}}
 x.textContent=LK[k]?'♥':'♡';x.classList.toggle('on',!!LK[k])})}
 function draw(){if(!L)return;document.getElementById('ms-badge').innerHTML=L.badge;document.getElementById('ms-n').textContent=L.n+' blocks · tip '+L.tip+' · 🐾 Sky sightings: '+(L.sky||0);
 let h=L.rows;(L.arch||[]).slice().sort((a,b)=>b-a).forEach(d=>{h+=MSA[d]||''});document.getElementById('ms-rows').innerHTML=h;
