@@ -1,0 +1,62 @@
+{
+ "v": 1,
+ "episodes": [
+  {
+   "ep": 1,
+   "date": "2026-10-28",
+   "day": 4,
+   "title": "The Night Shift · Episode 1",
+   "lines": [
+    {
+     "t": "open",
+     "text": "The lights are low and the Shoal is talking in its sleep."
+    },
+    {
+     "t": "recap",
+     "text": "Clarissa wins the Reprieve (Spelling Sprint) and spends the shell to leave the Marked; Kiki names Mina in the shell's place"
+    },
+    {
+     "t": "recap",
+     "text": "The Ebb takes Mina (57-7); Marea carries Mina to the Spirits"
+    },
+    {
+     "t": "quote",
+     "name": "Bessent",
+     "text": "The fog is where pressure builds. Position early.",
+     "at": "01:18"
+    },
+    {
+     "t": "quote",
+     "name": "David",
+     "text": "Lessons From the Sea, Lesson 2. Back to the lantern light. Courage first, then surrender.",
+     "at": "01:51"
+    },
+    {
+     "t": "quote",
+     "name": "Dara",
+     "text": "Small thing. I agreed with everyone today. Interesting results.",
+     "at": "02:24"
+    },
+    {
+     "t": "quote",
+     "name": "Cato",
+     "text": "Low tide is not in your control. Your answer to it is.",
+     "at": "03:30"
+    },
+    {
+     "t": "quote",
+     "name": "Cleo",
+     "text": "To wash or not to wash the last biscuit: that is the question.",
+     "at": "04:36"
+    },
+    {
+     "t": "close",
+     "text": "Morning is coming. Sleep while it lasts."
+    }
+   ],
+   "file": "ep-001.mp4",
+   "poster": "ep-001.jpg",
+   "bytes": 387655
+  }
+ ]
+}
