@@ -1,0 +1,24 @@
+{
+ "_schema": {
+  "date": "YYYY-MM-DD (America/Phoenix) the episode was recorded",
+  "title": "string, episode title",
+  "guests": "list of resident ids from cast.json, e.g. [\"rand\"]",
+  "best_line": "string, the single best quote from the episode",
+  "verdict": "string, Theo's one-line verdict on the guest"
+ },
+ "episodes": [
+  {
+   "date": "2026-10-29",
+   "title": "Taken by the Ebb, Episode 1: The Premiere",
+   "guests": [
+    "bastiankole",
+    "savannah",
+    "surf-coco",
+    "mina",
+    "rand"
+   ],
+   "best_line": "Lord, it's like two dogs fighting over a sandwich while the sandwich is out dating a cat.",
+   "verdict": "A grudge don't float, babies. It just makes you sink pretty."
+  }
+ ]
+}
