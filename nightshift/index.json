@@ -2,6 +2,59 @@
  "v": 1,
  "episodes": [
   {
+   "ep": 2,
+   "date": "2026-10-29",
+   "day": 5,
+   "title": "The Night Shift · Episode 2",
+   "lines": [
+    {
+     "t": "open",
+     "text": "The water is dark and the porch is not empty."
+    },
+    {
+     "t": "recap",
+     "text": "The tide rests. The Keeper holds the lantern; the Marked wait"
+    },
+    {
+     "t": "quote",
+     "name": "Tobin",
+     "text": "The kettle squeaked. Not anymore.",
+     "at": "22:45"
+    },
+    {
+     "t": "quote",
+     "name": "Inés",
+     "text": "So the long table and I had a morning. A long one.",
+     "at": "23:18"
+    },
+    {
+     "t": "quote",
+     "name": "Ezra",
+     "text": "Between us: The lantern was lit before anyone climbed the stairs.",
+     "at": "02:36"
+    },
+    {
+     "t": "quote",
+     "name": "Lucía",
+     "text": "Tactic for the breakfast line: press early. Unlike my cousin, who presses garlic and calls it strategy.",
+     "at": "04:48"
+    },
+    {
+     "t": "quote",
+     "name": "Kenny",
+     "text": "Wet towels on the rail? That is a full count, two outs, and I am throwing heat.",
+     "at": "05:21"
+    },
+    {
+     "t": "close",
+     "text": "Lights out. See you after dark."
+    }
+   ],
+   "file": "ep-002.mp4",
+   "poster": "ep-002.jpg",
+   "bytes": 306189
+  },
+  {
    "ep": 1,
    "date": "2026-10-28",
    "day": 4,
