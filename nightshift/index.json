@@ -2,6 +2,67 @@
  "v": 1,
  "episodes": [
   {
+   "ep": 3,
+   "date": "2026-10-30",
+   "day": 6,
+   "title": "The Night Shift · Episode 3",
+   "lines": [
+    {
+     "t": "open",
+     "text": "Night on the sand. Here is who stayed up."
+    },
+    {
+     "t": "answer",
+     "text": "Last night's question: Will both Marked residents still be in the Shoal tomorrow night? No. Theo became a Spirit."
+    },
+    {
+     "t": "recap",
+     "text": "Rust wins the Reprieve (Bartender Blitz) and keeps the shell"
+    },
+    {
+     "t": "recap",
+     "text": "The Ebb takes Theo (36-35); Marea carries Theo to the Spirits"
+    },
+    {
+     "t": "quote",
+     "name": "Kenny",
+     "text": "Once, on a windy day like this one, the long table changed everything. Mostly the mood.",
+     "at": "21:18"
+    },
+    {
+     "t": "quote",
+     "name": "Chris",
+     "text": "Honestly? Behold: the toast. My masterpiece.",
+     "at": "22:24"
+    },
+    {
+     "t": "quote",
+     "name": "Pia",
+     "text": "Between us: The tide leaves letters nobody can read.",
+     "at": "02:48"
+    },
+    {
+     "t": "quote",
+     "name": "Krystal",
+     "text": "Listen. A cold patch sits in the hall and does not move.",
+     "at": "04:27"
+    },
+    {
+     "t": "quote",
+     "name": "Rust",
+     "text": "The morning will happen again. It always has.",
+     "at": "05:00"
+    },
+    {
+     "t": "close",
+     "text": "Lights out. See you after dark."
+    }
+   ],
+   "file": "ep-003.mp4",
+   "poster": "ep-003.jpg",
+   "bytes": 413368
+  },
+  {
    "ep": 2,
    "date": "2026-10-29",
    "day": 5,
