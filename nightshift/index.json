@@ -2,6 +2,67 @@
  "v": 1,
  "episodes": [
   {
+   "ep": 4,
+   "date": "2026-10-31",
+   "day": 7,
+   "title": "The Night Shift · Episode 4",
+   "lines": [
+    {
+     "t": "open",
+     "text": "Night on the sand. Here is who stayed up."
+    },
+    {
+     "t": "answer",
+     "text": "Last night's question: Will Perrin and Javi both still be in the Shoal tomorrow night? Yes. Both Marked residents are still in the Shoal."
+    },
+    {
+     "t": "recap",
+     "text": "Perrin wins the Reprieve (Bartender Blitz) and spends the shell to leave the Marked; Fenna names Rust in the shell's place"
+    },
+    {
+     "t": "recap",
+     "text": "The Ebb takes Rust (48-21); Marea carries Rust to the Spirits"
+    },
+    {
+     "t": "quote",
+     "name": "Jokr",
+     "text": "Confession: I think about the creaky door more than I admit.",
+     "at": "22:36"
+    },
+    {
+     "t": "quote",
+     "name": "Tiago",
+     "text": "The algae on the steps was not consulted about any of this and acts consulted.",
+     "at": "23:09"
+    },
+    {
+     "t": "quote",
+     "name": "Ezra",
+     "text": "I have notes on the rocks, and none are kind.",
+     "at": "03:00"
+    },
+    {
+     "t": "quote",
+     "name": "Bessent",
+     "text": "Honestly? I do not need to be the loudest. I need to be here.",
+     "at": "04:06"
+    },
+    {
+     "t": "quote",
+     "name": "Dax",
+     "text": "A calm word on the morning swim: schedule it.",
+     "at": "05:45"
+    },
+    {
+     "t": "close",
+     "text": "Dawn on the Shoal. Shift over."
+    }
+   ],
+   "file": "ep-004.mp4",
+   "poster": "ep-004.jpg",
+   "bytes": 397374
+  },
+  {
    "ep": 3,
    "date": "2026-10-30",
    "day": 6,
